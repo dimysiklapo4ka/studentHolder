@@ -39,9 +39,9 @@ public class FragmentRecyclerView extends Fragment {
 
     private void rv(View v){
         RecyclerView rvInitStudent = (RecyclerView) v.findViewById(R.id.rv_init_student);
-
-         rvInitStudent.setLayoutManager(new LinearLayoutManager(getActivity()));
-               rvInitStudent.setHasFixedSize(true);
+        //rvInitStudent.getChildItemId(v);
+        rvInitStudent.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvInitStudent.setHasFixedSize(true);
         rvInitStudent.setAdapter(new RecyclerViewAdapter(this, studentInInit()));
     }
 

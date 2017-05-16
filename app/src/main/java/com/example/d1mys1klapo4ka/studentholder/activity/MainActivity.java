@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container_activity, fragment)
                 .commit();
+
+        //CardView cardView = (CardView)findViewById(R.id.cv_item);
 }
+
 
 }

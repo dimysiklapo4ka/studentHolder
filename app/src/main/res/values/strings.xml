@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Student Holder</string>
     <string name="button">Button</string>
+    <string name="textview">TextView</string>
+    <string name="photo">photo</string>
+    <string name="skills">skills</string>
 </resources>
