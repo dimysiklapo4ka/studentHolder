@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.d1mys1klapo4ka.studentholder.R;
 //import com.example.d1mys1klapo4ka.studentholder.activity.RecyclerViewActivity;
+import com.example.d1mys1klapo4ka.studentholder.activity.SecondActivity;
 import com.example.d1mys1klapo4ka.studentholder.adapter.RecyclerViewAdapter;
 import com.example.d1mys1klapo4ka.studentholder.model.StudentHolder;
 
@@ -24,7 +25,7 @@ import java.util.ArrayList;
  */
 
 public class FragmentRecyclerView extends Fragment {
-
+    private RecyclerView rvInitStudent;
     public FragmentRecyclerView(){}
 
     @Nullable
@@ -38,12 +39,22 @@ public class FragmentRecyclerView extends Fragment {
     }
 
     private void rv(View v){
-        RecyclerView rvInitStudent = (RecyclerView) v.findViewById(R.id.rv_init_student);
+        rvInitStudent = (RecyclerView) v.findViewById(R.id.rv_init_student);
         //rvInitStudent.getChildItemId(v);
         rvInitStudent.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvInitStudent.setHasFixedSize(true);
-        rvInitStudent.setAdapter(new RecyclerViewAdapter(this, studentInInit()));
+        rvInitStudent.setAdapter(new RecyclerViewAdapter(getActivity(), studentInInit(),onClickListener));
     }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+         int position = rvInitStudent.getChildAdapterPosition(v);
+            Intent intent = new Intent(getActivity(), SecondActivity.class);
+            intent.putExtra("student", studentInInit().get(position));
+            startActivity(intent);
+        }
+    };
 
     private ArrayList<StudentHolder> studentInInit() {
 
